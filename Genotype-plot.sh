@@ -48,11 +48,18 @@ test <- read.table("138snp.allsample.r.plot", header = TRUE, row.names = 1)
 
 # 读取name.list
 name_list <- readLines("name.list")
-
 test_ordered <- test[name_list, , drop = FALSE]
 
 # 绘制热图
-pheatmap(test_ordered, color = colorRampPalette(c("white", "#8bb5d1", "#cb5c5b"))(3), cluster_col = TRUE, cluster_row = FALSE, show_colnames = FALSE, filename= "138snp.allsample.pdf")
+pdf("ik.5site.specific_position.pdf", width = 8, height = 6)  # 设置宽度为8， 高度为6
+
+pheatmap(test_ordered, 
+         color = colorRampPalette(c("white", "#8bb5d1", "#cb5c5b"))(3), 
+         cluster_col = FALSE, 
+         cluster_row = FALSE, 
+         show_colnames = FALSE)
+
+dev.off()
 
 # 绘制 EHH 图
 # 生成两个群体的vcf文件
