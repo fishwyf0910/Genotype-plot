@@ -51,7 +51,7 @@ name_list <- readLines("name.list")
 test_ordered <- test[name_list, , drop = FALSE]
 
 # 绘制热图
-pdf("ik.5site.specific_position.pdf", width = 8, height = 6)  # 设置宽度为8， 高度为6
+pdf("ik.5site.specific_position.pdf", width = 3, height = 6)  # 设置宽度为8， 高度为6
 
 pheatmap(test_ordered, 
          color = colorRampPalette(c("white", "#8bb5d1", "#cb5c5b"))(3), 
