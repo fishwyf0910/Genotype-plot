@@ -4,6 +4,14 @@ vcftools --gzvcf input.vcf --chr n --recode --recode-INFO-all --stdout | bgzip >
 
 # 提指定区域
 bcftools filter 1000Genomes.vcf.gz --regions 9:4700000-4800000 > 4700000-4800000.vcf
+# 提指定位点
+vcftools --gzvcf file.vcf.gz --positions specific_position.txt --recode --out specific_position.vcf
+# specific_position.txt的输入格式如下：
+1 842013
+1 891021
+1 903426
+1 949654
+1 1018704
 
 # 提样本
 bcftools view -s 02R0004,03R0016,02R0010,05R0020,03R0028,02R0018,03R0008,05R0006,03R0043,05R0032,03R0027,03R0001,XG-1,XG-2,XG-3,HB-1,HB-2,HB-3,HB-4,HB-5,HB-6,OJ-1,OJ-2,OJ-3 /data01/wangyf/project2/CyprinusCarpio/15.pop/0.vcfdata/final-raw.indel5.biSNP.QUAL30.QD3.FS20.MQ55.SOR3.MQRS-5.RPRS-5.PASS.GQ10.popmiss.maxmiss0.15.AF0.05.10-3ClusterFilter.vcf.gz -Ov  > haplo/chrA08/abtb1/2pop.vcf
